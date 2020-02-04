@@ -1,3 +1,4 @@
+  
 import React, { Component } from 'react';
 import MaterialTable from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -7,19 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-class Table extends Component {
-  constructor(props) {
-    super(props)
-    this.render=this.render.bind(this);
-
-    this.state = {
-      data: props.data
-    }
-    console.log(props.data)
-  }
-
-  render() {
-    return (
+const table = ({ data }) => (
       <TableContainer component={Paper}>
         <MaterialTable aria-label="simple table">
           <TableHead>
@@ -29,7 +18,7 @@ class Table extends Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {this.state.data.map(row => (
+            {data.map(row => (
               <TableRow key={row.Id}>
                 <TableCell align="right">{row.Value}</TableCell>
                 <TableCell align="right">{row.Operation == 1 ? "Debito" : "Credito"}</TableCell>
@@ -38,7 +27,6 @@ class Table extends Component {
           </TableBody>
         </MaterialTable>
       </TableContainer>
-    );
-  }
-}
+);
+
 export default Table;
