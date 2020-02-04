@@ -29,4 +29,4 @@ const table = ({ data }) => (
       </TableContainer>
 );
 
-export default Table;
+export default table;
